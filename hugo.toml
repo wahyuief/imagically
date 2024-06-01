@@ -1,0 +1,5 @@
+baseURL = 'https://imagically.net/'
+languageCode = 'en-US'
+title = 'Imagically'
+enableRobotsTXT = true
+disableKinds = ["page", "section", "taxonomy", "term"]

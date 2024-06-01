@@ -1,0 +1,159 @@
+{{ define "description" }}
+test
+{{ end }}
+{{ define "main" }}
+<article class="mx-auto">
+    <section id="hero" class="sm:h-lvh text-center content-center my-24 sm:my-0">
+        <h1 class="font-semibold text-3xl md:text-4xl mb-7">{{ .Title }}</h1>
+        <p class="mb-14 text-lg">{{ .Description }}</p>
+        <div class="md:flex text-left mb-14">
+            <ul class="flex-column md:w-64 space-y space-y-4 font-medium md:me-4 mb-4 md:mb-0">
+                <li>
+                    <a href="#" class="tablinks border inline-flex items-center px-4 py-2 sm:px-5 sm:py-3 rounded-lg w-full text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500" onclick="openTab(event, '#usage', '#hero')">
+                        Usage
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tablinks border inline-flex items-center px-4 py-2 sm:px-5 sm:py-3 rounded-lg w-full hover:text-gray-900 bg-white hover:bg-gray-50" onclick="openTab(event, '#parameters', '#hero')">
+                        Parameters
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tablinks border inline-flex items-center px-4 py-2 sm:px-5 sm:py-3 rounded-lg w-full hover:text-gray-900 bg-white hover:bg-gray-50" onclick="openTab(event, '#cache', '#hero')">
+                        Cache
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tablinks border inline-flex items-center px-4 py-2 sm:px-5 sm:py-3 rounded-lg w-full hover:text-gray-900 bg-white hover:bg-gray-50" onclick="openTab(event, '#limitations', '#hero')">
+                        Limitations
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tablinks border inline-flex items-center px-4 py-2 sm:px-5 sm:py-3 rounded-lg w-full hover:text-gray-900 bg-white hover:bg-gray-50" onclick="openTab(event, '#imageformats', '#hero')">
+                        Image Formats
+                    </a>
+                </li>
+            </ul>
+            <div id="usage" class="tabcontent p-6 bg-white text-medium border rounded-lg w-full">
+                <h2 class="text-lg font-bold mb-3">Usage</h2>
+                <p class="mb-2"><code>/:params/:file:output</code></p>
+                <p class="mb-2"><code>:params</code> - Filters to control image</p>
+                <p class="mb-2"><code>:file</code> - The image file URL</p>
+                <p><code>:output</code> - Format type to convert image</p>
+            </div>
+            <div id="parameters" class="tabcontent p-6 bg-white text-medium border rounded-lg w-full hidden">
+                <h2 class="text-lg font-bold mb-3">Parameters</h2>
+                <p class="mb-2"><code>/w:100/example.com/image.jpg</code> - Set new image width in pixel</p>
+                <p class="mb-2"><code>/h:100/example.com/image.jpg</code> - Set new image height in pixel</p>
+                <p class="mb-2"><code>/q:100/example.com/image.jpg</code> - Set new image quality</p>
+                <p class="mb-2"><code>/example.com/image.jpg.webp</code> - Convert image to WebP format</p>
+                <p><code>/w:100/h:100/q:100/example.com/image.jpg</code> - Using all params</p>
+            </div>
+            <div id="cache" class="tabcontent p-6 bg-white text-medium border rounded-lg w-full hidden">
+                <h2 class="text-lg font-bold mb-3">Cache</h2>
+                <p class="mb-2">Image files will be cached on the server for 1 hour.</p>
+                <p>Image files will be cached on the CDN for 1 year.</p>
+            </div>
+            <div id="limitations" class="tabcontent p-6 bg-white text-medium border rounded-lg w-full hidden">
+                <h2 class="text-lg font-bold mb-3">Limitations</h2>
+                <p class="mb-2">The size limit of the image file you can load is <b>10MB</b>, otherwise it will redirect to the origin image url.</p>
+                <p class="mb-2">No bandwidth limitations.</p>
+                <p>No warranties, use at your own risk</p>
+            </div>
+            <div id="imageformats" class="tabcontent p-6 bg-white text-medium border rounded-lg w-full hidden">
+                <h2 class="text-lg font-bold mb-3">Supported Image Formats</h2>
+                <ul class="list-disc ms-5">
+                    <li>JPG</li>
+                    <li>JPEG</li>
+                    <li>PNG</li>
+                    <li>WebP</li>
+                    <li>SVG (Minify Only)</li>
+                    <li>GIF (Resize Only)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sm:grid sm:grid-cols-3 sm:gap-5 mb-7">
+            <div class="mb-5">
+                <h3 class="font-medium text-lg">Real Time</h3>
+                <p>Deliver images without delay</p>
+            </div>
+            <div class="mb-5">
+                <h3 class="font-medium text-lg">Unlimited Traffic</h3>
+                <p>No worries traffic limit or throttling</p>
+            </div>
+            <div class="mb-5">
+                <h3 class="font-medium text-lg">Image CDN</h3>
+                <p>Served from super fast CDN</p>
+            </div>
+        </div>
+    </section>
+    <section id="demo" class="mb-12 relative">
+        <ul class="p-6 absolute left-0 top-0 space-y space-y-4 font-medium">
+            <li>
+                <a href="#" class="tablinks border inline-flex items-center px-3 py-1 sm:px-4 sm:py-2 rounded-lg w-full text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500" onclick="openTab(event, '#image1', '#demo')">
+                    1
+                </a>
+            </li>
+            <li>
+                <a href="#" class="tablinks border inline-flex items-center px-3 py-1 sm:px-4 sm:py-2 rounded-lg w-full hover:text-gray-900 bg-white hover:bg-gray-50" onclick="openTab(event, '#image2', '#demo')">
+                    2
+                </a>
+            </li>
+            <li>
+                <a href="#" class="tablinks border inline-flex items-center px-3 py-1 sm:px-4 sm:py-2 rounded-lg w-full hover:text-gray-900 bg-white hover:bg-gray-50" onclick="openTab(event, '#image3', '#demo')">
+                    3
+                </a>
+            </li>
+        </ul>
+        <div id="image1" class="tabcontent bg-white rounded-3xl w-full grid justify-center border">
+            <img src="https://cdn.imagically.net/w:1280/h:0/q:100/imagically.net/img/mountains-8404362.jpg.webp" alt="Clubtail Dragonfly from Pixabay" class="rounded-3xl" loading="lazy">
+        </div>
+        <div id="image2" class="tabcontent bg-white rounded-3xl w-full justify-center border hidden">
+            <img src="https://cdn.imagically.net/w:1280/h:0/q:100/imagically.net/img/abstract-1484014.png.webp" alt="Abstract from Pixabay" class="rounded-3xl" loading="lazy">
+        </div>
+        <div id="image3" class="tabcontent bg-white rounded-3xl w-full justify-center border hidden">
+            <img src="https://cdn.imagically.net/w:1280/h:0/q:100/imagically.net/img/woman-8733934.jpg.webp" alt="Woman from Pixabay" class="rounded-3xl" loading="lazy">
+        </div>
+        <div class="sm:sticky bottom-5 left-0 bg-white border h-full rounded-t-3xl rounded-b-3xl my-6">
+            <form class="p-6 sm:grid sm:grid-cols-2 gap-4 font-medium">
+                <div>
+                    <div class="mb-5">
+                        <label for="quality" class="block mb-1">Quality</label>
+                        <input id="quality" type="range" min="1" max="100" step="1" value="100" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer" oninput="updateURL()">
+                    </div>
+                    <div class="mb-5">
+                        <label for="width" class="block mb-1">Width</label>
+                        <input id="width" type="range" min="0" max="1280" value="1280" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer" oninput="updateURL()">
+                    </div>
+                    <div class="mb-5 sm:mb-0">
+                        <label for="height" class="block mb-1">Height</label>
+                        <input id="height" type="range" min="0" max="1280" value="0" class="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer" oninput="updateURL()">
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-5">
+                        <label for="formats" class="block mb-1">Format</label>
+                        <select id="formats" class="bg-white border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" onchange="updateURL()">
+                            <option value="jpg">JPG</option>
+                            <option value="png">PNG</option>
+                            <option value="webp" selected>WEBP</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="imagically-url" class="block mb-1">Imagically URL</label>
+                        <textarea name="imagically-url" id="imagically-url" class="block p-2.5 h-20 w-full bg-white rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" aria-label="Imagically URL" readonly>https://cdn.imagically.net/w:1280/h:0/q:100/imagically.net/img/mountains-8404362.jpg.webp</textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="support" class="mb-12 relative h-60 grid justify-center content-center">
+        <h2 class="text-center font-semibold text-lg mb-3">Powered by</h2>
+        <div class="flex justify-between items-baseline gap-4">
+            <a href="https://www.cloudflare.com" rel="noreferrer noopener" target="_blank" class="inline-block">
+                <img src="/img/cloudflare.webp" alt="cloudflare" width="100%" class="opacity-80 hover:opacity-100 grayscale hover:grayscale-0 transition-all" loading="lazy">
+            </a>
+        </div>
+    </section>
+</article>
+{{ end }}

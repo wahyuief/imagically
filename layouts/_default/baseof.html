@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang='{{ .Site.LanguageCode }}'>
+{{ partial "head.html" . }}
+
+<body class="flex flex-col min-h-screen bg-slate-100 text-slate-700">
+    {{- partial "header.html" . -}}
+    <main class="flex-1 grow mx-auto w-screen max-w-screen-xl px-6 sm:px-7 xl:px-8 2xl:px-10">
+        {{- block "main" . }}{{- end }}
+    </main>
+    {{- partial "footer.html" . -}}
+    <script>
+        function openTab(e,t,l){var a,r,i;e.preventDefault();let d=document.getElementById("quality"),n=document.getElementById("width"),g=document.getElementById("height"),o=document.getElementById("formats");for(a=0,r=document.querySelectorAll(l+" .tabcontent");a<r.length;a++)r[a].classList.add("hidden");for(a=0,i=document.querySelectorAll(l+" .tablinks");a<i.length;a++)i[a].classList.remove("bg-gradient-to-r","from-indigo-500","via-purple-500","to-pink-500","text-white"),i[a].classList.add("hover:text-gray-900","bg-white","hover:bg-gray-50");document.querySelector(l+" "+t).classList.remove("hidden"),"#demo"===l&&document.querySelector(l+" "+t).classList.add("grid"),e.currentTarget.classList.remove("hover:text-gray-900","bg-white","hover:bg-gray-50"),e.currentTarget.classList.add("bg-gradient-to-r","from-indigo-500","via-purple-500","to-pink-500","text-white");let c=document.querySelector(".tabcontent:not(.hidden) img").src;n.value=c.match(/\/w:(\d+)/)[1],g.value=c.match(/\/h:(\d+)/)[1],d.value=c.match(/\/q:(\d+)/)[1],o.value=c.split(/[. ]+/).pop(),document.getElementById("imagically-url").value=c}function updateURL(){let e=document.getElementById("quality").value,t=document.getElementById("width").value,l=document.getElementById("height").value,a=document.getElementById("formats").value,r=document.querySelector(".tabcontent:not(.hidden) img");if(r){let i=r.src;i=(i=(i=(i=i.replace(/\/w:\d+/,`/w:${t}`)).replace(/\/h:\d+/,`/h:${l}`)).replace(/\/q:\d+/,`/q:${e}`)).replace(/\.(jpg|png|webp)$/,`.${a}`),document.getElementById("imagically-url").value=i,r.src=i}}
+    </script>
+</body>
+
+</html>

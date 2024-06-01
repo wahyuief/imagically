@@ -1,0 +1,22 @@
+/* TailwindCSS base styles */
+/* see https://tailwindcss.com/docs/functions-and-directives#tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+/* Site Specific */
+/* put site specific css styles here using the @layer directive */
+/* see https://tailwindcss.com/docs/functions-and-directives#layer */
+@layer components {
+    code {
+        @apply bg-gray-200;
+        @apply px-1;
+        @apply pt-0.5;
+        @apply border;
+        @apply border-gray-300;
+        @apply rounded-sm;
+        @apply font-mono;
+        @apply text-sm;
+    }
+}
