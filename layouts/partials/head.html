@@ -9,10 +9,10 @@
     {{- if .Params.Author }}
     <meta name="author" content="{{ .Params.Author}}">{{ end -}}
     {{ hugo.Generator }}
-    {{ partialCached "css.html" . }}
     {{ if .Params.canonicalUrl }}
     <link rel="canonical" href="{{ .Params.canonicalUrl }}">
     {{ else }}
     <link rel="canonical" href="{{ .RelPermalink }}">
     {{ end }}
+    <link rel="stylesheet" href="/css/style.css">
 </head>
